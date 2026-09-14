@@ -1646,6 +1646,21 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
  html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] { font-size:20px; }
 }
 </style>
+<style>
+/* Two essay cards on tablets/computers; one on mobile. */
+#info-modal.is-writings .essay-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+#info-modal.is-writings .essay-card { min-width:0; padding:24px; border:1px solid #D2E4E7; border-radius:6px; background:#F7FCFC; }
+#info-modal.is-writings .essay-toggle { padding:10px 18px; background:#fff; color:#175D4F; border:1px solid #207D69; border-radius:6px; cursor:pointer; font:inherit; }
+#info-modal.is-writings .essay-toggle:focus-visible { outline:2px solid #397DA7; outline-offset:3px; }
+#info-modal.is-writings .essay-toggle:hover { background:#E6F5EF; }
+@media(min-width:768px) {
+ #info-modal.is-writings .bio-card { width:calc(100vw - 48px); max-width:1200px; box-sizing:border-box; }
+}
+@media(max-width:767px) {
+ #info-modal.is-writings .essay-grid { grid-template-columns:minmax(0,1fr); }
+ #info-modal.is-writings .essay-card { padding:18px; }
+}
+</style>
 </head>
 <body>
 
@@ -1823,7 +1838,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   <div class="bio-card" role="dialog" aria-modal="true" aria-labelledby="info-title">
     <button class="bio-close" id="info-modal-close" aria-label="close">&times;</button>
     <h2 id="info-title" style="font-family:var(--font-kr-display);"></h2>
-    <p id="info-body" style="color:var(--text-dim);"></p>
+    <div id="info-body" style="color:var(--text-dim);"></div>
     <div id="exhibition-gallery" hidden></div>
     <div id="news-archive" hidden></div>
   </div>
@@ -1987,6 +2002,8 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
 
   // Exhibition Views / News: both are pages-to-come. Clicking either closes the
   // drawer and opens a shared "coming soon" card (same visual style as Bio).
+  const expandedEssays = new Set();
+  const SECOND_ESSAY = {"ko": "존재의 전환\n\n— 김경아 씨의 개인전에 —\n\n서성록\n미술평론가\n\n김경아 씨의 그림은 어수룩하거나 흠잡을 데가 없이 전체적으로 매끈하고 세련되어 있다. 정리가 잘 된 깨끗한 실내를 들여다보는 것 같으며 화면을 다듬고 재료를 사용하는 솜씨가 돋보인다.\n\n첫 개인전을 여는 사람답지 않게 그의 작품은 이미 초보 단계를 능가해 버린 것 같다. 한 번 더 내가 놀란 것은 그가 학부에서 조각을 전공하였으나 개인전을 위해 준비한 작품들은 회화 작품이라는 사실이다. 말하자면 비전공 분야에 도전하는 모험을 하는 셈인데 그 기량은 그림을 전공한 사람 뺨칠 수준이다. 아예 그림 쪽으로 전공을 바꾼 셈인데 그의 변신은 일단은 성공적으로 받아들여진다. 아울러 이런 단계에 오기까지 수년간의 끈질긴 훈련과 노력이 있었음을 느낄 수 있었다.\n\n그의 공간은 단정하고 안정되어 있다. 공연히 술렁이거나 요란을 떨지 않는다. 적절한 공간 경영, 색깔 사용, 재료 구사가 매우 침착하다. 인공의 강제성이 배제된 자연스러움, 힘의 완급 조절, 절제된 색채, 맵시 있는 드로잉이 만만치 않다.\n\n그가 사용하는 색깔은 브라운, 번트 시에나, 번트 엄버, 옐로 오카 등으로 구성되어 있다. 그 색깔들은 바탕의 흰색과 잘 어울려 하모니를 이룬다. 바탕의 흰 색깔은 어떤 물리적인 색깔 이상의 의미를 지닌다. 맥 빠지고 생명과 활기를 잃은 무기력한 물질로서 존재하는 게 아니라 화면을 조용하고 차분하며 아취 있는 공간으로 끌어올리는 구실을 한다. 은은함과 잔잔함, 그리고 단아함과 같은 낱말들을 떠올리게 한다. 그의 공간은 종전처럼 생명 없는 물질의 공간이 아니라 서정성을 머금은 친근하며 정감이 가는 공간이다.\n\n이런 분위기는 물론 공짜로 얻어진 것은 아니다. 그는 이런 울림 있는 공간을 얻기 위해 까다로운 공정을 마다하지 않는다. 먼저 캔버스에 핸디코트를 올리고 아크릴을 덮은 다음 이 과정에서 망을 붙이거나 스크래치를 내는 등 군데군데에 포인트를 주고 이 과정이 끝나면 플라스틱 나이프를 사용하여 화면에 아크릴을 한 번 더 올린다. 맨 나중에 목탄으로 드로잉을 하는데 운필의 묘미를 느낄 수 있거니와 이와 함께 즉흥적인 드로잉은 잠잠했던 화면에 생동감을 주는 구실을 한다. 하지만 이러한 드로잉은 아주 부분적이며 제한적으로 사용되고 있다.\n\n그의 작품에는 여러 재료들이 사용된다. 입자가 작은 사포, 철망, 윤기 나는 동판은 물론이고 핸디코트, 모델링 컴파운드, 금강사, 젯소 등 실로 다양한 재료가 기용된다.\n\n내가 주목하고 싶은 것은 철저한 재료의 통제와 요리이다. 가령 화면 부분을 점유하는 동판만 해도 그렇다. 누런 동판은 보통 재료가 아니라 능숙하게 요리되어 전혀 다르게 제시된다. 반짝이는 부분이 있는가 하면 상채기를 입은 부분, 그리고 녹슨 부분, 퇴색한 부분이 있다. 어떤 작가들은 이런 재료를 수집하러 다니기도 한다. 그러나 김경아 씨는 그런 효과를 모두 그의 손끝에서 만들어 얻어냈다. 수집하는 데 비해 수고를 더 많이 해야 하지만 재미가 있어 스스로 제작하기를 선호한다. 퇴색한 느낌은 동판에 열을 가해 검게 변색을 시킨 것이고 상채기는 망치로 두드려 흠집을 내어 얻은 것이고 광이 나는 것은 사포질을 한 결과이며 녹슨 효과는 염산으로 부식시켜 얻은 것이다. 과거에 철을 만지던 솜씨를 그림에 주효하게 사용하는 셈이다.\n\n무제 · 45 × 45 cm · 혼합재료 · 2002\n\n전체적으로 김경아 씨가 여러 재료 및 오브제를 사용하는 이유는 풍부한 시각적 경험을 안겨다주려는 데 있지 않나 싶다. 그의 그림 표면은 이러한 사실을 반증하듯 높고 낮은 요철, 나이프가 빚어내는 터치, 망 자국, 종이나 샌드페이퍼의 재질감이 다채롭게 선보인다.\n\n평상시에는 아무리 쓸모없는 물건일지라도 작품 안에 들어오면 예상치 못했던 효력을 발휘하기 시작한다. 칠하고 붙이고 으깨고 두드리고 자르고 부수는 등 일체의 공정을 거쳐 그러한 사물들은 버젓이 본래의 모습, 아니 그 이상의 모습을 갖추게 된다. 질적 차원에서의 존재의 전환! 이것이야말로 그의 작품에서 이루어지는 놀라운 장면이 아닐 수 없다.\n\n김경아 씨는 이제 예술의 장도에 오른다. 알다시피 예술의 길은 끝이 잘 보이지 않는 막막한 길이다. 사막에서 오아시스를 찾듯이 그 길을 나선다는 것은 두렵고 주저된다. 그러나 그런 길을 떠나려는 사람을 막을 방안은 없다.\n\n만일 예술 안에 기쁨이 있고 행복이 있으며 즐거움이 있다면 나는 그 예술의 장도를 권장할 뿐만 아니라 그 길을 떠나려는 사람들을 축복하고 싶다. 그 선택은 떠나려는 사람, 그러니까 여행자 스스로가 해야 한다. 누구도 그 두 갈래 길의 선택을 강제할 수 없다. 힘든 길을 갈 것인지 아니면 행복을 찾아갈 것인지 그 선택은 오로지 김경아 씨 혼자서만 할 수 있다. 나는 그의 여행이 행복한 선택이요 기쁨과 즐거움으로 충만한 여행이 되기 바란다. 그의 즐거움은 자신의 작품을 보는 사람에게도 즐거움을 선사할 수 있게 될 테니까…", "en": "The Transformation of Being\n\nOn the Occasion of Kim Kyungah’s Solo Exhibition\n\nSeo Seong-rok\nArt Critic\n\nKim Kyungah’s paintings are consistently polished and refined, revealing neither awkwardness nor any obvious flaws. Looking at them is like looking into a clean, well-ordered interior. Her skill in refining the pictorial surface and handling her materials is particularly striking.\n\nFor an artist holding her first solo exhibition, her work already seems to have progressed well beyond the beginner’s stage. What surprised me further was that, although she majored in sculpture as an undergraduate, the works she prepared for this exhibition are paintings. In other words, she has ventured into a field outside her original specialization, yet her command of painting could put even formally trained painters to shame. She has effectively changed her discipline, and this transformation can, at this stage, be regarded as successful. One also senses the years of persistent training and effort required to reach this point.\n\nThe spaces she creates are orderly and composed. They neither stir unnecessarily nor call attention to themselves through commotion. Her arrangement of space, use of color, and handling of materials are remarkably assured. There is much to admire in their unforced naturalness, the modulation of strength and restraint, the measured palette, and the elegance of her drawing.\n\nHer palette consists of browns, burnt sienna, burnt umber, and yellow ochre. These colors harmonize with the white ground. This white carries a significance beyond that of a merely physical color. It does not remain an inert substance, drained of life and vitality; rather, it elevates the pictorial field into a quiet, composed space of understated grace. It brings to mind words such as subtlety, serenity, and elegance. Her space is no longer simply a domain of lifeless matter, but one imbued with lyricism, warmth, and intimacy.\n\nSuch an atmosphere is not, of course, achieved without effort. To create a space with this resonance, she willingly undertakes a demanding process. She first applies Handycoat to the canvas and covers it with acrylic paint. During this process, she introduces accents in selected areas by attaching mesh or scratching the surface. Once this stage is complete, she applies another layer of acrylic paint with a plastic knife. Finally, she draws with charcoal. One can appreciate the expressive character of her strokes, while the spontaneous drawing brings vitality to the previously quiet surface. These drawn interventions, however, remain highly selective and restrained.\n\nShe employs a wide range of materials: fine-grit sandpaper, wire mesh, gleaming copper sheet, Handycoat, modeling compound, emery, and gesso, among others.\n\nWhat I wish to emphasize is her rigorous control and treatment of these materials. Consider, for example, the copper sheet occupying part of a painting. Its yellowish surface is not presented as an ordinary, unaltered material; it is skillfully worked into something altogether different. Some areas gleam, while others are scarred, corroded, or discolored. Some artists search for and collect materials already bearing such traces. Kim, however, produces all these effects with her own hands. Although this requires more effort than collecting them, she prefers to create them herself because she enjoys the process. The darkened, weathered appearance is achieved by heating the copper; the scars are made by hammering it; the sheen results from sanding; and the corroded effect is produced with hydrochloric acid. In this way, she puts the skills she acquired through working with iron to effective use in painting.\n\nUntitled · 45 × 45 cm · Mixed Media · 2002\n\nOn the whole, it seems to me that Kim employs these varied materials and objects to offer a rich visual experience. The surfaces of her paintings bear witness to this through their diverse textures: raised and recessed areas, marks shaped by the knife, impressions of mesh, and the tactile qualities of paper and sandpaper.\n\nHowever useless an object may seem in everyday life, once it enters a work of art, it begins to exert an unforeseen power. Through painting, attaching, crushing, hammering, cutting, and breaking, these objects acquire a distinct presence—indeed, something beyond their original form. A qualitative transformation of being: this is surely one of the remarkable events taking place within her work.\n\nKim now sets out on the long journey of art. As we know, the artist’s path is an uncertain one, its destination scarcely visible. To embark upon it is to feel fear and hesitation, as though searching for an oasis in the desert. Yet there is no way to hold back someone determined to undertake that journey.\n\nIf art holds joy, happiness, and pleasure, I would not only encourage this long undertaking but also offer my blessing to those preparing to embark upon it. The choice must be made by the person setting out—the traveler herself. No one can compel another to choose one path over the other. Whether to follow a difficult road or to seek happiness is a choice that Kim alone can make. I hope her journey proves to be a happy choice, filled with joy and delight. For her own delight may, in turn, bring delight to those who encounter her work…"};
   const INFO_CONTENT = {
     writings: {
       ko: { title: '작가 평론', body: "김경아 작품세계\n\n정련된 미의식에 의해 이끌리는 내면의 그림자\n\n신항섭\n미술평론가\n\n화가는 이 세상의 풍정과 그 인상을 시각적인 이미지로 표현하는 예술가이다. 바꾸어 말해 눈에 보이는 현상계의 모든 것은 그림의 소재라고 할 수 있다. 적어도 추상미술이 등장하기 전까지는 현실세계를 재현하거나 그 인상을 표현하는 것이 전부였다. 그러다가 추상미술의 등장으로 인해 눈에 보이지 않는 영역, 즉 비가시적인 세계까지도 회화적인 제재가 되었다. 상상이나 정신 및 감정과 같은 인간의 내적인 세계 또한 회화적인 제재로서 각광받게 된 것이다.\n\n김경아의 작업은 눈에 보이지는 않으나 엄연히 존재하는, 사유의 세계를 탐색하는 데 초점을 맞춘다. 다시 말해 그 자신의 체험으로부터 연원하는 삶에 대한 의문을 제기하고 스스로 그 답을 찾아가는 과정이라고 할 수 있다. 이러한 창작행위는 인간 삶에 대한 본질적인 의문임과 동시에 자연과의 연관성을 찾는 일이기도 하다. 이는 자연과 우주 그리고 인간을 하나의 몸체로 파악한 동양철학에 근거하는 사유체계의 소산이다.\n\n어찌 보면 시각예술로서의 회화가 추구하는 목표와는 사뭇 다른 길일 수도 있는 철학적인 내용을 작업의 제재로 삼는다는 것은 흔치 않은 일이다. 물론 모든 화가들의 작업 그 자체는 개인적인 인생관 및 세계관의 표출이라는 점에 이의를 제기할 수는 없다. 그렇다고 하더라도 그의 경우처럼 자연현상에서 감지되는, 즉 생성과 소멸을 반복하는 자연의 법칙에서 자유로울 수 없는 인간 삶에 대한 성찰을 회화적인 제재로 삼는 일은 극히 예외적이다.\n\n그는 삶에 대한 본질적인 의문과 우리가 살고 있는 현실적인 공간에서 일어나는 일들을 비구상적이고 추상적인 언어로 풀어간다. 인간 삶은 시간과 공간이라는 제약으로부터 결코 자유로울 수 없다. 우리들 자신에게 주어지는 시간성과 공간성은 극복할 수 없는 운명적인 조건이다. 생명의 유한성에 저당잡혀 있는 한 시공을 초월한 독립적인 존재성을 획득하기란 불가한 일이다. 따라서 시간은 유한하고 공간은 무한한데 이 양자 간의 갭을 어떤 식으로 메우고 영원성을 획득하는가의 문제가 다름 아닌 그의 작업이 지향하는 조형의 목표이다.\n\n그가 비구상적이고 추상적인 언어를 채택한 것은 작업의 제재가 현학적인 세계이기 때문이다. 눈에 보이는 현상적인 이미지만으로 시간과 공간에 대한 이해를 풀어나가기에는 한계가 있기 마련이다. 물론 그의 작업에서 모래시계나 다트판과 같은 구체적인 형태가 보이기도 하지만, 이는 내용과 관련한 상징적인 이미지일 따름이다. 즉, 작품에 은닉된 의미내용을 드러내기 위한 최소한의 이미지라고 할 수 있다.\n\n그의 초기 작업은 사계절이 순환하는 대자연의 법칙에 대한 숙고의 흔적을 드러냈다. 나뭇잎과 모래시계의 이미지를 통해 생성과 소멸의 과정을 반복하는 자연과 거기에 순응하는 인간 삶을 시간의 유한성에 결부시켜 보는 작업방식이었다. 대자연의 뼈대인 장대한 산을 상징하는 나뭇잎에다 모래시계를 대입시키는 방식이었는데, 시간의 흐름과 함께 하는 무상한 현상계의 변화를 주목하는 일이었다.\n\n그는 여기에서 전면회화 방식으로 전개되는 반복적인 이미지의 나열을 통해 순환하는 생명의 질서에 대한 감회를 표현하는 데 의미를 두고자 했다. 나뭇잎이나 모래시계는 개략적인 이미지로 제시되는 한편 반복적인 작업을 통해 중층의 구조를 가지게 된다. 동일한 이미지의 중층, 또는 적층은 공간적인 심도를 높이게 된다. 심도 및 공간감을 의식적으로 부여하게 된 것은 전공이 조각이었음을 상기시킨다.\n\n동일한 이미지의 반복적인 배치 및 배열은 시각적인 안정성 및 조형적인 결속력을 강화시키는 효과가 있다. 여기에는 생명의 영원성을 갈파하는 윤회사상이 개입되고 있는데, 연속적이고 중첩되는 이미지는 시간의 축적과 항상성을 의미한다. 인간의 생명은 유한할지언정 생성과 소멸을 반복하는 자연의 섭리처럼 또 다른 생명체로 다시 태어난다는 희망적인 메시지를 담는 것이다.\n\n최근 작업은 ‘공간-여행’이라는 명제가 암시하듯이 인간에게 주어진 유한한 시간을 영위하는 행위야말로 시간과 공간의 여행이라고 할 수 있다. 우주의 한 점에 불과한 지구에서 살고 있는 인간은 극미한 존재이다. 불교적인 의미에서의 성찰이 아니더라도 인간 삶이란 결과적으로 시간의 여행이자 그 누적에 불과하다. 이렇듯 한정된 시간 및 공간에 존재하는 인간 삶은 아주 짧은 선분일 뿐이다.\n\n최근 작업에서도 등장하는 모래시계나 다트 또는 원형의 이미지는 시간성과 결부되는 상징적인 기호이자 메시지인 것이다. 그의 작업에서 인생에 대한 사유 및 성찰은 기호나 부호와 같은 이미지로 표현되고 감정변화는 색채이미지로 변환한다. 최근 작업에서 두드러져 보이는 다채로운 색채이미지는 일상적인 삶에서 일어나는 극적인 감정세계를 은유한다. 특히 최근 작업에서 빈번하게 등장하는 동심원과 같은 모양의 이미지는 온전하고 완전한 것, 정신적인 평정, 감정의 정화 그리고 우주를 상징한다.\n\n원형의 이미지는 그러데이션으로 표현되는데 그 조형적인 균질함 및 세련미는 숙달된 기술적인 완성에서 나오는 것이다. 즉, 절제되고 정제된 의식이 조율하는 극도로 긴장된 신체적인 행위의 결과로서 얻어진다. 거기에서는 오랜 세월 정련한 성직자의 맑은 의식세계를 들여다보는 듯싶은 기분을 느낄 수 있다.\n\n비구상이나 추상적인 이미지는 이처럼 세련된 기술적인 완성도가 뒷받침되고 있다. 그 세련미는 작가의 내면세계를 밝히는 통로일 것이다.\n\n최근 작업은 화면구성에서 일정한 규칙성을 따른다. 크기 및 모양 그리고 색깔이 다른 원형의 이미지가 화면의 상단이나 중심에 집중하면서 은하계를 연상시킨다. 이는 상상의 조합이 아니고, 연상의 받아쓰기도 아니다. 순전히 그 자신의 내면의 거울에 비쳐진 사유의 그림자일 뿐이다. 거기에 색채이미지라는 미의식 및 미적 감각이 보태진다.\n\n그림은 궁극적으로 감상자의 마음을 움직일 수 있는 심미적인 요소가 고려되어야 한다. 그는 시각예술이 추구하는 이상이란 궁극적으로 미적 심미안을 충족시킬 수 있는 탐미세계에 있음을 간과하지 않는다. 추상적인 언어라고 할지라도 심미적인 이미지를 고려하지 않고서는 시각적인 흡인력이 약할 수밖에 없다. 그는 이러한 요구를 충족시킨다.\n\n인간에게 주어진 시간은 불교적으로 해석하자면 전생과 현생과 내생으로 이어지는 하나의 고리이다. 이 연결고리는 결코 자의적으로 끊어낼 수 없는 윤회라는 우주의 질서에 편입되어 있다. 그렇다고 보면 인간 삶이란 얼마나 장엄한 것인가. 생명체로서는 유한하지만 결코 한정된 시간에 갇혀 있는 것이 아니다. 영속적이고 무한한 우주의 철리를 따르는 것이 인간 삶이라는 자각이야말로 그의 조형적인 지표일 것이다. 그는 이러한 시간의 흐름과 변화 그리고 순환 또는 윤회하는 과정을 회화적인 이미지로 표현하고 있는 것이다.\n\n그의 작업에 나타난 모든 이미지는 상상의 산물이 아니라 그 자신의 현실적인 삶에 연루된 것들이다. 다만 실제적인 일이라고 할지라도 그것은 이미 지나간 시간 속의 어느 지점, 즉 기억이나 연상에 의해 드러나는 내면의 등불이자 그 그림자일 것이다.\n\n내면의 등불을 밝히고 조형적인 길을 인도하는 것은 다름 아닌 사유의 세계이다. 그의 작업은 이처럼 정련된 의식 및 감정의 산물이다." },
@@ -2421,9 +2438,37 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
         button.addEventListener('click', () => setLang(code));
         languages.append(button);
       }
-      const paragraphs = d.body.split(/\n\s*\n/).filter(part => part.trim());
-      body.replaceChildren(languages, ...paragraphs.map((part, i) =>
-        viewElement('span', i === 0 ? 'essay-title' : i === 1 ? 'essay-subtitle' : i === 2 ? 'essay-author' : 'essay-paragraph', part.trim())));
+      const grid = viewElement('div', 'essay-grid');
+      [d.body, SECOND_ESSAY[lang]].forEach((text, index) => {
+        const parts = text.split(/\n\s*\n/).map(part => part.trim()).filter(Boolean);
+        const card = viewElement('article', 'essay-card');
+        const title = viewElement('h3', 'essay-title', parts[0]);
+        const subtitle = viewElement('p', 'essay-subtitle', parts[1]);
+        const author = viewElement('p', 'essay-author', parts[2]);
+        const content = viewElement('div', 'essay-content');
+        content.id = 'essay-content-' + index;
+        const toggle = viewElement('button', 'essay-toggle');
+        toggle.type = 'button';
+        toggle.setAttribute('aria-controls', content.id);
+        const update = () => {
+          const expanded = expandedEssays.has(index);
+          const full = parts.slice(3);
+          const preview = full.join(' ').replace(/\s+/g, ' ');
+          const limit = lang === 'ko' ? 160 : 260;
+          content.replaceChildren(...(expanded ? full : [preview.slice(0, limit) + (preview.length > limit ? '…' : '')]).map(part => viewElement('p', 'essay-paragraph', part)));
+          toggle.textContent = expanded ? (lang === 'ko' ? '접기' : 'Show less') : (lang === 'ko' ? '전체보기' : 'Read more');
+          toggle.setAttribute('aria-expanded', String(expanded));
+        };
+        toggle.addEventListener('click', () => {
+          if (expandedEssays.has(index)) expandedEssays.delete(index); else expandedEssays.add(index);
+          update();
+          if (!expandedEssays.has(index)) toggle.scrollIntoView({block:'nearest'});
+        });
+        update();
+        card.append(title, subtitle, author, content, toggle);
+        grid.append(card);
+      });
+      body.replaceChildren(languages, grid);
     }
 
     const isExhibition = key === 'exhibition';
