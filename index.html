@@ -3055,7 +3055,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
       const isYeosuWork = getWorkSectionKey(work) === 'yeosu';
       const secondaryMeta = isYeosuWork
         ? ''
-        : [material, work.year].filter(Boolean).join(' · ');
+        : [material, field(work, 'size'), work.year].filter(Boolean).join(' · ');
       const rawImage = work.image || '';
       const imageUrl = rawImage ? withCacheBust(rawImage) : '';
       const priority = index < INITIAL_EAGER_COUNT;
