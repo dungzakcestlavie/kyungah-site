@@ -1,0 +1,508 @@
+/* KYUNGAH only: color overrides. Original layout, type sizes and interactions retained. */
+html[data-theme="kyungah-light"] {
+ color-scheme:light;
+ --bg-deep:#F7FCFC; --bg-mid:#EAF4FC; --bg-light:#E6F5EF;
+ --card-bg:#FFFFFF; --card-border:#D2E4E7;
+ --gold-base:#397DA7; --gold-bright:#207D69; --gold-primary:#207D69;
+ --gold-border:#D2E4E7; --gold-text:#207D69;
+ --text-main:#203E48; --text-dim:#526A73;
+}
+html[data-theme="kyungah-light"] header.site-header { background:#FFFFFF; }
+html[data-theme="kyungah-light"] nav.primary button.active, html[data-theme="kyungah-light"] nav.primary button:hover { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .social-drawer-backdrop { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .social-drawer-panel { box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .social-drawer-close:hover, html[data-theme="kyungah-light"] .social-drawer-close:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .social-drawer-links a:hover { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .contact-toggle:hover, html[data-theme="kyungah-light"] .contact-toggle[aria-expanded="true"], html[data-theme="kyungah-light"] .drawer-btn:hover { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .droplet { box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .stage-dot { box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .series-select-trigger { border-color:#D2E4E7; background:#FFFFFF; box-shadow:0 8px 28px rgba(32,62,72,.09); color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-trigger:hover, html[data-theme="kyungah-light"] .series-select-trigger:focus-visible, html[data-theme="kyungah-light"] .series-select.is-open .series-select-trigger { border-color:#D2E4E7; background:#FFFFFF; box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .series-name-kr { color:#203E48; }
+html[data-theme="kyungah-light"] .series-name-en { color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-chevron { color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-trigger:hover .series-select-chevron, html[data-theme="kyungah-light"] .series-select-trigger:focus-visible .series-select-chevron { color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-scrim { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .series-select-panel { background:#FFFFFF; border-color:#D2E4E7; box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .series-select-option { color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-option:hover, html[data-theme="kyungah-light"] .series-select-option:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .series-select-option[aria-selected="true"] { background:#FFFFFF; color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-option[aria-selected="true"]::before { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .series-select-option.has-children::after { color:#203E48; }
+html[data-theme="kyungah-light"] .series-select-option.series-select-back { color:#203E48; border-bottom-color:#D2E4E7; }
+html[data-theme="kyungah-light"] .series-select-option.series-select-back:hover, html[data-theme="kyungah-light"] .series-select-option.series-select-back:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .option-name-kr { color:#203E48; }
+html[data-theme="kyungah-light"] .option-name-en { color:#203E48; }
+html[data-theme="kyungah-light"] .search-field { border-color:#D2E4E7; background:#FFFFFF; }
+html[data-theme="kyungah-light"] .search-field:focus-within { border-color:#D2E4E7; box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .search-field-icon { color:#526A73; }
+html[data-theme="kyungah-light"] .search-field input { color:#203E48; }
+html[data-theme="kyungah-light"] .search-field input::placeholder { color:#526A73; }
+html[data-theme="kyungah-light"] .search-field-clear { color:#203E48; }
+html[data-theme="kyungah-light"] .search-field-clear:hover, html[data-theme="kyungah-light"] .search-field-clear:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .series-select-panel { box-shadow:0 8px 28px rgba(32,62,72,.09); }
+html[data-theme="kyungah-light"] .thumb-wrap { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #viewer { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #viewer .v-close { color:#203E48; }
+html[data-theme="kyungah-light"] #viewer .v-arrow { color:#203E48; }
+html[data-theme="kyungah-light"] .bio-backdrop { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .bio-close:hover, html[data-theme="kyungah-light"] .bio-close:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] .bio-body p { color:#203E48; }
+html[data-theme="kyungah-light"] .chrono-toggle:hover, html[data-theme="kyungah-light"] .chrono-toggle:focus-visible { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .bio-card { background:#FFFFFF; color:#203E48; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition #info-title { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition #info-modal-close { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition:not(.is-viewer) #exhibition-gallery { scrollbar-color:#397DA7 #EAF4FC; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs { border-bottom-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs button { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs button[aria-pressed="true"] { border-bottom-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-card { border-color:#D2E4E7; background:#FFFFFF; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-label { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-open, html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-back { color:#203E48; border-bottom-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .exhibition-controls { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .exhibition-controls button { color:#203E48; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-zoom button { border-color:#D2E4E7; color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .bio-card { background:#FFFFFF; color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-card { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-card h3 { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-meta, html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-description { color:#526A73; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs button { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs button[aria-pressed="true"] { color:#203E48; border-bottom-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-open, html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-back { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-zoom button:hover, html[data-theme="kyungah-light"] #info-modal.is-exhibition .exhibition-controls button:not(:disabled):hover { background:#FFFFFF; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition button:focus-visible, html[data-theme="kyungah-light"] #info-modal.is-exhibition .exhibition-stage:focus-visible { outline-color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition > .bio-backdrop { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #info-modal.is-news > .bio-backdrop { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #info-modal.is-news .bio-card { background:#FFFFFF; color:#203E48; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #info-modal.is-news #info-title { color:#203E48; }
+html[data-theme="kyungah-light"] #info-modal.is-news #info-modal-close { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-languages button { border-color:#D2E4E7; color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-languages button[aria-pressed="true"] { color:#203E48; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #news-archive .news-card { background:#FFFFFF; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #news-archive .news-image { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive h3 { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-body { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-date { color:#526A73; }
+html[data-theme="kyungah-light"] #news-archive .news-status { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-images { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #news-archive .news-images .news-image { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #news-archive .news-read-more { color:#203E48; background:#FFFFFF; border-color:#D2E4E7; }
+html[data-theme="kyungah-light"] #news-archive .news-read-more:hover { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #news-archive .news-cover-button { background:#FFFFFF; color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-photo-viewer button { border-color:#D2E4E7; background:#FFFFFF; color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-photo-stage { background:#FFFFFF; }
+html[data-theme="kyungah-light"] #news-archive[lang="en"] .news-copy.news-en-expanded h3 { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive[lang="en"] .news-en-expanded .news-body { color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive[lang="en"] .news-en-expanded .news-body { color:#203E48; }
+
+html[data-theme="kyungah-light"] .bg-layer { background:linear-gradient(125deg,#F7FCFC 35%,#F0F7FC 72%,#EDF8F3); }
+html[data-theme="kyungah-light"] .site-header { background:rgba(247,252,252,.96); }
+html[data-theme="kyungah-light"] .social-drawer-backdrop,
+html[data-theme="kyungah-light"] .series-select-scrim,
+html[data-theme="kyungah-light"] .bio-backdrop { background:rgba(32,62,72,.22); }
+html[data-theme="kyungah-light"] #info-modal.is-exhibition > .bio-backdrop,
+html[data-theme="kyungah-light"] #info-modal.is-news > .bio-backdrop,
+html[data-theme="kyungah-light"] #viewer { background:#F7FCFC; }
+html[data-theme="kyungah-light"] .thumb-wrap,
+html[data-theme="kyungah-light"] #news-archive .news-images,
+html[data-theme="kyungah-light"] #news-archive .news-photo-stage { background:#EAF4FC; }
+html[data-theme="kyungah-light"] .lang-row button,
+html[data-theme="kyungah-light"] .contact-row dt { opacity:1; }
+html[data-theme="kyungah-light"] .series-select-trigger { background:#FFFFFF; color:#203E48; }
+html[data-theme="kyungah-light"] nav.primary button.active,
+html[data-theme="kyungah-light"] #news-archive .news-read-more { background:#2E7199; color:#FFFFFF; border-color:#2E7199; }
+html[data-theme="kyungah-light"] .bio-lang button.active,
+html[data-theme="kyungah-light"] #news-archive .news-languages button[aria-pressed="true"] { background:#207D69; color:#FFFFFF; border-color:#207D69; }
+html[data-theme="kyungah-light"] .series-select-option[aria-selected="true"],
+html[data-theme="kyungah-light"] .contact-toggle[aria-expanded="true"],
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-tabs button[aria-pressed="true"] { background:#E6F5EF; color:#175D4F; border-color:#207D69; }
+html[data-theme="kyungah-light"] button:hover,
+html[data-theme="kyungah-light"] .social-drawer-links a:hover { background-color:#EAF4FC; color:#203E48; }
+html[data-theme="kyungah-light"] #news-archive .news-read-more:hover { background:#245D7E; color:#FFFFFF; }
+html[data-theme="kyungah-light"] .contact-row dd a { color:#175D4F; }
+html[data-theme="kyungah-light"] :is(button,a,input,[tabindex]):focus-visible { outline:2px solid #207D69; outline-offset:3px; }
+html[data-theme="kyungah-light"] .search-field:focus-within { border-color:#207D69; box-shadow:0 0 0 2px rgba(32,125,105,.14); }
+html[data-theme="kyungah-light"] .stage-dot { background:#207D69; box-shadow:0 0 7px rgba(32,125,105,.18); }
+html[data-theme="kyungah-light"] #panel-home .kyungah-star { background:#397DA7; animation-iteration-count:2; animation-fill-mode:both; }
+html[data-theme="kyungah-light"] #panel-home .kyungah-star:nth-child(even) { background:#207D69; }
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name { color:#203E48; }
+@media (prefers-reduced-motion:reduce) {
+ html[data-theme="kyungah-light"] #panel-home .kyungah-star { animation:none; opacity:.6; }
+}
+
+/* Artist identity refinement: gold names, emerald primary navigation. */
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline { color:#947024; font-weight:600; font-style:normal; }
+html[data-theme="kyungah-light"][data-lang="ko"] #brand-home,
+html[data-theme="kyungah-light"][data-lang="ko"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline.ko,
+html[data-theme="kyungah-light"][data-lang="ko"] nav.primary button { font-family:'Maru Buri','Nanum Myeongjo',serif; }
+html[data-theme="kyungah-light"][data-lang="en"] #brand-home,
+html[data-theme="kyungah-light"][data-lang="en"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline.en,
+html[data-theme="kyungah-light"][data-lang="en"] nav.primary button { font-family:'Cormorant Garamond',serif; }
+html[data-theme="kyungah-light"] nav.primary button { color:#207D69; font-weight:600; }
+html[data-theme="kyungah-light"] nav.primary button:hover,
+html[data-theme="kyungah-light"] nav.primary button.active,
+html[data-theme="kyungah-light"] nav.primary button:focus-visible { color:#207D69; background:#E6F5EF; }
+html[data-theme="kyungah-light"] #brand-home:hover { color:#947024; background:transparent; opacity:1; }
+
+/* A restrained champagne-gold highlight, limited to the artist's name. */
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #brand-home:hover,
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ color:#AD8330; text-shadow:0 1px 5px rgba(196,160,82,.12);
+}
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #brand-home:hover,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+  background-image:linear-gradient(110deg,#A77C2B 8%,#C4A052 43%,#B58D39 64%,#A77C2B 92%);
+  background-clip:text; -webkit-background-clip:text; color:transparent;
+  -webkit-text-fill-color:transparent;
+ }
+}
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ background-image:none; color:CanvasText; -webkit-text-fill-color:CanvasText; text-shadow:none;
+ }
+}
+
+/* Bright yellow gold and clearer, larger English artist lettering. */
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #brand-home:hover,
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ color:#D0A019; -webkit-text-fill-color:currentColor;
+ background-image:none; text-shadow:0 1px 1px rgba(255,230,140,.45);
+}
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #brand-home:hover,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+  background-image:linear-gradient(105deg,#C79A12 0%,#E5BD43 36%,#D5AA23 62%,#C79A12 100%);
+  background-clip:text; -webkit-background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+ }
+}
+html[data-theme="kyungah-light"][data-lang="en"] #brand-home {
+ font-family:'Cinzel',Georgia,serif; font-weight:500;
+ font-size:clamp(26px,4.3vw,52px); letter-spacing:.035em;
+ white-space:normal; text-wrap:balance; line-height:1.3;
+}
+html[data-theme="kyungah-light"][data-lang="en"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline.en {
+ font-family:'Cinzel',Georgia,serif; font-weight:500;
+ font-size:clamp(22px,3vw,32px); line-height:1.5; text-wrap:balance;
+}
+html[data-theme="kyungah-light"][data-lang="en"] nav.primary button {
+ font-family:'Cinzel',Georgia,serif; font-size:20px; font-weight:600;
+}
+@media (max-width:600px) {
+ html[data-theme="kyungah-light"][data-lang="en"] nav.primary button { font-size:14px; }
+}
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ background-image:none; color:CanvasText; -webkit-text-fill-color:CanvasText; text-shadow:none;
+ }
+}
+
+/* Biography typography: scoped to supplied long-form content. */
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section { margin:28px 0; }
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section h3 { color:#207D69; font-size:1.15em; margin:0 0 14px; }
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section h4 { color:#203E48; font-size:1em; margin:16px 0 8px; }
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section li { color:#203E48; }
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section a { color:#207D69; overflow-wrap:anywhere; }
+
+/* Final champagne finish: neutral gold with a restrained pearl highlight. */
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #brand-home:hover,
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ background-image:none; color:#B69A66; -webkit-text-fill-color:currentColor;
+ text-shadow:0 1px 1px rgba(255,250,235,.65),0 0 6px rgba(205,185,145,.13);
+}
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #brand-home:hover,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ background-image:linear-gradient(115deg,#AA8E5C 4%,#C4AD80 35%,#D3BD91 49%,#BCA16D 64%,#AA8E5C 96%);
+ background-clip:text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+ }
+}
+html[data-theme="kyungah-light"] #bio-modal #bio-title { font-family:var(--font-kr-display); }
+html[data-theme="kyungah-light"][data-lang="en"] #bio-modal #bio-title { font-family:var(--font-en-display); }
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline { background-image:none; color:CanvasText; -webkit-text-fill-color:CanvasText; text-shadow:none; }
+}
+
+/* Rich opening constellation: all effects confined above the central identity. */
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars {
+ width:min(90vw,880px); height:180px; pointer-events:none; isolation:isolate;
+}
+html[data-theme="kyungah-light"] #panel-home .role {
+ font-size:clamp(25px,3.7vw,38px); line-height:1.35; font-weight:500;
+ letter-spacing:.18em; color:#207D69; opacity:1; transform:none; margin:18px 0 10px;
+ font-family:'Maru Buri','Nanum Myeongjo',serif;
+}
+html[data-theme="kyungah-light"][data-lang="en"] #panel-home .role {
+ font-family:'Cinzel',Georgia,serif;
+}
+html[data-theme="kyungah-light"] #panel-home .kyungah-intro-name,
+html[data-theme="kyungah-light"][data-lang="en"] #panel-home .kyungah-intro-name {
+ font-size:clamp(16px,2.2vw,22px); line-height:1.65; margin:0;
+}
+#panel-home .kyungah-spark {
+ position:absolute; left:50%; top:50%; width:var(--size); height:var(--size);
+ opacity:0; animation:kyungah-unfold var(--duration) cubic-bezier(.18,.56,.26,1) var(--delay) 1 both;
+}
+#panel-home .kyungah-spark i {
+ display:block; width:100%; height:100%; background:var(--spark-color); border-radius:50%;
+ animation:kyungah-glimmer 2.8s ease-in-out var(--delay) infinite;
+}
+#panel-home .kyungah-spark--star i {
+ border-radius:0; clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);
+}
+#panel-home .kyungah-spark--flare i {
+ background:radial-gradient(circle,#FCFBF4 0 8%,var(--spark-color) 28%,transparent 68%);
+ box-shadow:0 0 14px rgba(132,174,181,.22);
+}
+#panel-home .kyungah-spark--flare i::before,
+#panel-home .kyungah-spark--flare i::after {
+ content:''; position:absolute; top:48%; left:-35%; width:170%; height:1px;
+ background:linear-gradient(90deg,transparent,var(--spark-color),transparent);
+}
+#panel-home .kyungah-spark--flare i::after { transform:rotate(90deg); }
+@keyframes kyungah-unfold {
+ 0% { opacity:0; transform:translate(0,var(--y0)) scale(.25); }
+ 14% { opacity:.75; }
+ 42% { opacity:.95; }
+ 72% { opacity:.65; }
+ 100% { opacity:0; transform:translate(calc(var(--dx) * min(40vw,400px)),var(--y1)) scale(.7); }
+}
+@keyframes kyungah-glimmer {
+ 0%,100% { opacity:.45; transform:scale(.75); }
+ 50% { opacity:1; transform:scale(1.15); }
+}
+#panel-home:not(.is-active) .kyungah-spark,
+#panel-home:not(.is-active) .kyungah-spark i { animation-play-state:paused; }
+@media (max-width:600px) {
+ html[data-theme="kyungah-light"] #panel-home .kyungah-stars { height:160px; }
+}
+@media (prefers-reduced-motion:reduce) {
+ #panel-home .kyungah-spark { animation:none; opacity:.45; transform:translate(calc(var(--dx) * min(40vw,400px)),var(--y1)); }
+ #panel-home .kyungah-spark i { animation:none; }
+}
+
+/* Three translucent washes: sky blue, emerald and a pale blue-green base. */
+html[data-theme="kyungah-light"] { background:#E7F3F3; --bg-deep:#E7F3F3; --text-main:#203E48; --text-dim:#48636D; }
+html[data-theme="kyungah-light"] body { background:transparent; }
+html[data-theme="kyungah-light"] .bg-layer {
+ background:
+  radial-gradient(ellipse at 8% 16%,rgba(121,180,220,.36) 0%,rgba(148,198,230,.17) 36%,transparent 66%),
+  radial-gradient(ellipse at 93% 74%,rgba(99,187,154,.32) 0%,rgba(146,211,185,.16) 40%,transparent 70%),
+  linear-gradient(135deg,#EDF7FB 0%,#E6F1F5 47%,#E7F5ED 100%);
+ background-size:100% 100%; animation:none; filter:none;
+}
+html[data-theme="kyungah-light"] header.site-header {
+ background:rgba(240,248,248,.86); border-bottom-color:#BFD8DB;
+}
+html[data-theme="kyungah-light"] .social-drawer-panel,
+html[data-theme="kyungah-light"] #bio-modal .bio-card,
+html[data-theme="kyungah-light"] #info-modal .bio-card,
+html[data-theme="kyungah-light"] #info-modal.is-news .bio-card,
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .bio-card {
+ background:#F5FAF8; border-color:#BDD7D5; color:#203E48;
+}
+html[data-theme="kyungah-light"] .card,
+html[data-theme="kyungah-light"] #news-archive .news-card,
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-card {
+ background:#F9FCFC; border-color:#C3DADC;
+}
+html[data-theme="kyungah-light"] #viewer,
+html[data-theme="kyungah-light"] #info-modal.is-news > .bio-backdrop,
+html[data-theme="kyungah-light"] #info-modal.is-exhibition > .bio-backdrop { background:#E7F1F1; }
+html[data-theme="kyungah-light"] .series-select-trigger,
+html[data-theme="kyungah-light"] .series-select-panel { background:#F6FBFC; border-color:#BDD7DE; }
+html[data-theme="kyungah-light"] .contact-row dt,
+html[data-theme="kyungah-light"] .footer-copy { color:#48636D; }
+
+/* Central ARTIST with a four-direction constellation; header identity unchanged. */
+html[data-theme="kyungah-light"] #panel-home .stage {
+ min-height:clamp(300px,52vh,500px); justify-content:center; isolation:isolate;
+}
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars {
+ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+ width:min(92vw,920px); height:100%; margin:0; z-index:0;
+}
+html[data-theme="kyungah-light"] #panel-home .role {
+ position:relative; z-index:1; margin:0; font-size:clamp(36px,5vw,56px);
+ font-weight:500; line-height:1.3; letter-spacing:.16em; text-indent:.16em;
+ color:#B99D65; text-shadow:0 1px 4px rgba(215,195,151,.18);
+}
+@supports ((background-clip:text) or (-webkit-background-clip:text)) {
+ html[data-theme="kyungah-light"] #panel-home .role {
+ background-image:linear-gradient(110deg,#AA8E59 0%,#C3AB78 32%,#D6BF8D 48%,#B79C66 70%,#AA8E59 100%);
+ background-clip:text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+ }
+}
+#panel-home .kyungah-spark { animation-name:kyungah-surround; }
+@keyframes kyungah-surround {
+ 0% { opacity:0; transform:translate(calc(var(--cx) * min(29vw,165px)),calc(var(--cy) * 68px)) scale(.25); }
+ 16% { opacity:.7; }
+ 42% { opacity:.95; }
+ 72% { opacity:.65; }
+ 100% { opacity:0; transform:translate(calc(var(--dx) * min(45vw,460px)),calc(var(--dy) * min(27vh,240px))) scale(.7); }
+}
+@media (prefers-reduced-motion:reduce) {
+ #panel-home .kyungah-spark { animation:none; opacity:.35; transform:translate(calc(var(--dx) * min(45vw,460px)),calc(var(--dy) * min(27vh,240px))); }
+ #panel-home .kyungah-spark i { animation:none; }
+}
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #panel-home .role { background-image:none; color:CanvasText; -webkit-text-fill-color:CanvasText; text-shadow:none; }
+}
+
+/* CHORA refinement: half-size central title, deeper gold, slower layered light. */
+html[data-theme="kyungah-light"] #panel-home .role {
+ font-size:clamp(18px,2.5vw,28px);
+}
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #brand-home:hover {
+ background-image:none; color:#977332; -webkit-text-fill-color:#977332;
+ text-shadow:0 1px 0 rgba(230,211,170,.4); opacity:1;
+}
+#panel-home .kyungah-spark i { animation-duration:5.8s; }
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars::before,
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars::after {
+ content:''; position:absolute; left:50%; top:50%; width:min(78vw,750px); height:min(46vh,410px);
+ pointer-events:none; border-radius:50%; opacity:0;
+ background:radial-gradient(ellipse,transparent 18%,rgba(76,150,169,.11) 38%,rgba(100,179,150,.08) 55%,transparent 72%);
+ animation:kyungah-chora-bloom 26s ease-out 1 both;
+}
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars::after {
+ background:radial-gradient(ellipse,transparent 20%,rgba(189,166,114,.10) 40%,rgba(106,169,192,.07) 57%,transparent 72%);
+ animation-delay:2.8s;
+}
+@keyframes kyungah-chora-bloom {
+ 0% { opacity:0; transform:translate(-50%,-50%) scale(.35) rotate(-12deg); }
+ 24% { opacity:.8; }
+ 55% { opacity:1; }
+ 100% { opacity:0; transform:translate(-50%,-50%) scale(1.15) rotate(12deg); }
+}
+html[data-theme="kyungah-light"] #panel-home:not(.is-active) .kyungah-stars::before,
+html[data-theme="kyungah-light"] #panel-home:not(.is-active) .kyungah-stars::after { animation-play-state:paused; }
+@media (prefers-reduced-motion:reduce) {
+ html[data-theme="kyungah-light"] #panel-home .kyungah-stars::before,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-stars::after { animation:none; opacity:0; }
+ #panel-home .kyungah-spark i { animation:none; }
+}
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #brand-home:hover { color:CanvasText; -webkit-text-fill-color:CanvasText; text-shadow:none; }
+}
+
+/* Reference-matched gold: dominant interior text color sampled from supplied KJS image. */
+html[data-theme="kyungah-light"] #brand-home,
+html[data-theme="kyungah-light"] #brand-home:hover,
+html[data-theme="kyungah-light"] #bio-modal .bio-tagline {
+ color:#BC9D4C; -webkit-text-fill-color:#BC9D4C;
+ background-image:none; text-shadow:none; opacity:1;
+}
+@media (forced-colors:active) {
+ html[data-theme="kyungah-light"] #brand-home,
+ html[data-theme="kyungah-light"] #brand-home:hover,
+ html[data-theme="kyungah-light"] #bio-modal .bio-tagline { color:CanvasText; -webkit-text-fill-color:CanvasText; }
+}
+
+/* English biography readability only; Korean, branding and interactions preserved. */
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] {
+ font-family:Georgia,'Times New Roman',serif; font-style:normal;
+}
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] p,
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] li {
+ font-family:Georgia,'Times New Roman',serif;
+ font-size:calc(22px * var(--bio-scale,1)); font-weight:400;
+ line-height:1.75; letter-spacing:0; color:#203E48;
+ overflow-wrap:break-word;
+}
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] h3 {
+ font-family:Georgia,'Times New Roman',serif;
+ font-size:calc(25px * var(--bio-scale,1)); font-weight:700; line-height:1.4;
+}
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] h4 {
+ font-family:Georgia,'Times New Roman',serif;
+ font-size:calc(21px * var(--bio-scale,1)); font-weight:700; line-height:1.5;
+}
+@media (max-width:767px) {
+ html[data-theme="kyungah-light"] #bio-modal [lang="en"] p,
+ html[data-theme="kyungah-light"] #bio-modal [lang="en"] li { font-size:calc(20px * var(--bio-scale,1)); line-height:1.75; }
+ html[data-theme="kyungah-light"] #bio-modal [lang="en"] h3 { font-size:calc(23px * var(--bio-scale,1)); }
+ html[data-theme="kyungah-light"] #bio-modal [lang="en"] h4 { font-size:calc(20px * var(--bio-scale,1)); }
+}
+
+/* Site-wide English typography baseline, including future English content. */
+html[data-theme="kyungah-light"] {
+ --font-en-reading:Georgia,'Times New Roman',serif;
+ --font-en-display:var(--font-en-reading); --font-en-name:var(--font-en-reading); --font-en-brand:var(--font-en-reading);
+ --text-main:#173640; --text-dim:#36545F;
+}
+html[data-theme="kyungah-light"][data-lang="en"] body,
+html[data-theme="kyungah-light"][data-lang="en"] body :where(*),
+html[data-theme="kyungah-light"] [lang="en"],
+html[data-theme="kyungah-light"] [lang="en"] :where(*) {
+ font-family:var(--font-en-reading) !important;
+}
+html[data-theme="kyungah-light"][data-lang="en"] .social-drawer-links a,
+html[data-theme="kyungah-light"][data-lang="en"] .social-drawer-links button { letter-spacing:.02em; }
+html[data-theme="kyungah-light"][data-lang="en"] .contact-row dd,
+html[data-theme="kyungah-light"][data-lang="en"] .contact-row dd a {
+ font-size:20px; line-height:1.65; letter-spacing:0; overflow-wrap:anywhere;
+}
+html[data-theme="kyungah-light"][data-lang="en"] .contact-row dt {
+ font-size:15px; line-height:1.5; letter-spacing:.06em; font-weight:700;
+}
+html[data-theme="kyungah-light"] .contact-row dd,
+html[data-theme="kyungah-light"] .contact-row dd a,
+html[data-theme="kyungah-light"] .contact-row dt,
+html[data-theme="kyungah-light"] .footer-copy { color:#284A55; opacity:1; }
+html[data-theme="kyungah-light"] .social-drawer-links > a,
+html[data-theme="kyungah-light"] .social-drawer-links > button,
+html[data-theme="kyungah-light"] nav.primary button { color:#155B4D; }
+html[data-theme="kyungah-light"] #bio-modal .bio-body p,
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section li,
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] p,
+html[data-theme="kyungah-light"] #bio-modal [lang="en"] li,
+html[data-theme="kyungah-light"] #chrono-body p,
+html[data-theme="kyungah-light"] #chrono-body li,
+html[data-theme="kyungah-light"] #grid > p,
+html[data-theme="kyungah-light"] #news-archive .news-body,
+html[data-theme="kyungah-light"] #news-archive .news-status,
+html[data-theme="kyungah-light"] #info-modal.is-exhibition .views-description { color:#173640; text-shadow:none; }
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section h3,
+html[data-theme="kyungah-light"] #bio-modal .kyungah-bio-section a { color:#155B4D; }
+html[data-theme="kyungah-light"] .series-select-option,
+html[data-theme="kyungah-light"] .series-name-kr,
+html[data-theme="kyungah-light"] .series-name-en { color:#284A55; }
+
+/* Continuous CHORA: repeat while the home intro is visible. */
+html[data-theme="kyungah-light"] #panel-home .kyungah-spark,
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars::before,
+html[data-theme="kyungah-light"] #panel-home .kyungah-stars::after {
+ animation-iteration-count:infinite;
+}
+@media (prefers-reduced-motion:reduce) {
+ html[data-theme="kyungah-light"] #panel-home .kyungah-spark,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-stars::before,
+ html[data-theme="kyungah-light"] #panel-home .kyungah-stars::after { animation:none; }
+}

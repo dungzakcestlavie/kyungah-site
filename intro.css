@@ -1,0 +1,8 @@
+/* New animation: scoped exclusively to the home intro. Original CSS unchanged. */
+#panel-home .kyungah-stars { position:relative; width:min(76vw,440px); height:120px; pointer-events:none; }
+#panel-home .kyungah-star { position:absolute; left:50%; top:50%; width:var(--size); height:var(--size); background:var(--gold-bright); clip-path:polygon(50% 0,61% 39%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 39%); opacity:0; animation:kyungah-starlight var(--duration) ease-in-out var(--delay) infinite; }
+#panel-home .kyungah-intro-name { font-family:var(--font-kr-brand); font-size:clamp(19px,3vw,26px); line-height:1.8; color:var(--gold-text); margin:8px 0 18px; }
+html[data-lang="en"] #panel-home .kyungah-intro-name { font-family:var(--font-en-name); font-size:clamp(15px,2.8vw,24px); }
+#panel-home:not(.is-active) .kyungah-star { animation-play-state:paused; }
+@keyframes kyungah-starlight { 0% { opacity:0; transform:translate(0,var(--y)) scale(.45); } 18% { opacity:.8; } 33% { opacity:.35; } 48% { opacity:.95; } 67% { opacity:.4; } 82% { opacity:.6; } 100% { opacity:0; transform:translate(var(--x),var(--end-y)) scale(.65); } }
+@media (prefers-reduced-motion:reduce) { #panel-home .kyungah-star { animation:none; opacity:.6; transform:translate(var(--x),var(--end-y)); } }
