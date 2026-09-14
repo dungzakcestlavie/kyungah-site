@@ -1647,14 +1647,14 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
 }
 </style>
 <style>
-/* Two essay cards on tablets/computers; one on mobile. */
-#info-modal.is-writings .essay-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
+/* One essay per row at every screen width. */
+#info-modal.is-writings .essay-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:24px; align-items:start; }
 #info-modal.is-writings .essay-card { min-width:0; padding:24px; border:1px solid #D2E4E7; border-radius:6px; background:#F7FCFC; }
 #info-modal.is-writings .essay-toggle { padding:10px 18px; background:#fff; color:#175D4F; border:1px solid #207D69; border-radius:6px; cursor:pointer; font:inherit; }
 #info-modal.is-writings .essay-toggle:focus-visible { outline:2px solid #397DA7; outline-offset:3px; }
 #info-modal.is-writings .essay-toggle:hover { background:#E6F5EF; }
 @media(min-width:768px) {
- #info-modal.is-writings .bio-card { width:calc(100vw - 48px); max-width:1200px; box-sizing:border-box; }
+ #info-modal.is-writings .bio-card { width:calc(100vw - 48px); max-width:880px; box-sizing:border-box; }
 }
 @media(max-width:767px) {
  #info-modal.is-writings .essay-grid { grid-template-columns:minmax(0,1fr); }
