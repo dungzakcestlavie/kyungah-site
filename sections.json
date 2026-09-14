@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "key": "chora",
+    "title_kr": "코라",
+    "title_en": "CHORA",
+    "active": true,
+    "order": 1
+  }
+]
