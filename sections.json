@@ -5,5 +5,12 @@
     "title_en": "CHORA",
     "active": true,
     "order": 1
+  },
+  {
+    "key": "thanks",
+    "title_kr": "Thanks",
+    "title_en": "Thanks",
+    "active": true,
+    "order": 2
   }
 ]
