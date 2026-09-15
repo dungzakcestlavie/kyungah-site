@@ -19,5 +19,12 @@
     "title_en": "Space Voyage",
     "active": true,
     "order": 3
+  },
+  {
+    "key": "dual-temporality",
+    "title_kr": "두 개의 시간",
+    "title_en": "Dual Temporality",
+    "active": true,
+    "order": 4
   }
 ]
