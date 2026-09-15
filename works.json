@@ -194,32 +194,32 @@
     "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C015.jpg",
     "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C015.jpg"
   },
-  {
-    "id": "CO016",
-    "section_key": "chora",
-    "title_kr": "순환,숨",
-    "title_en": "순환,숨",
-    "material_kr": "mixed media",
-    "material_en": "mixed media",
-    "size_kr": "124.8 × 57 cm",
-    "size_en": "124.8 × 57 cm",
-    "year": "2025",
-    "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C016.jpg",
-    "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C016.jpg"
-  },
-  {
-    "id": "CO017",
-    "section_key": "chora",
-    "title_kr": "순환,숨",
-    "title_en": "순환,숨",
-    "material_kr": "mixed media",
-    "material_en": "mixed media",
-    "size_kr": "124.8 × 57 cm",
-    "size_en": "124.8 × 57 cm",
-    "year": "2025",
-    "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C017.jpg",
-    "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C017.jpg"
-  },
+{
+  "id": "CO016",
+  "section_key": "chora",
+  "title_kr": "순환, 숨",
+  "title_en": "Cycle, Breath",
+  "material_kr": "mixed media",
+  "material_en": "mixed media",
+  "size_kr": "124.8 × 57 cm",
+  "size_en": "124.8 × 57 cm",
+  "year": "2025",
+  "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C016.jpg",
+  "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C016.jpg"
+},
+{
+  "id": "CO017",
+  "section_key": "chora",
+  "title_kr": "순환, 숨",
+  "title_en": "Cycle, Breath",
+  "material_kr": "mixed media",
+  "material_en": "mixed media",
+  "size_kr": "124.8 × 57 cm",
+  "size_en": "124.8 × 57 cm",
+  "year": "2025",
+  "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C017.jpg",
+  "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C017.jpg"
+},
   {
     "id": "CO018",
     "section_key": "chora",
