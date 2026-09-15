@@ -12,5 +12,12 @@
     "title_en": "Thanks",
     "active": true,
     "order": 2
+  },
+  {
+    "key": "space-voyage",
+    "title_kr": "우주 항해",
+    "title_en": "Space Voyage",
+    "active": true,
+    "order": 3
   }
 ]
