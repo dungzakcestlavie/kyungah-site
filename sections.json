@@ -26,5 +26,12 @@
     "title_en": "Dual Temporality",
     "active": true,
     "order": 4
+  },
+  {
+    "key": "studies-experiments",
+    "title_kr": "연구와 실험",
+    "title_en": "Studies & Experiments",
+    "active": true,
+    "order": 5
   }
 ]
