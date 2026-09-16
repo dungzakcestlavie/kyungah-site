@@ -33,5 +33,12 @@
     "title_en": "Studies & Experiments",
     "active": true,
     "order": 5
+  },
+  {
+    "key": "beginnings",
+    "title_kr": "작업의 시작",
+    "title_en": "Beginnings",
+    "active": true,
+    "order": 6
   }
 ]
