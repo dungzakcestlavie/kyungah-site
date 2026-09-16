@@ -1618,7 +1618,7 @@
     }
   }
 </style>
-<link rel="stylesheet" href="kyungah-light.css">
+<link rel="stylesheet" href="https://kyungah.art/kyungah-light.css?v=20260916">
 <style>
 /* Critical Essays: single-column reading, scoped to this dialog only. */
 html[data-theme="kyungah-light"] #info-modal.is-writings #info-body {
@@ -2016,9 +2016,9 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
       en: { title: 'News', body: 'This page is being prepared. It will feature exhibition news, new work announcements, press coverage, interviews, and notices.' }
     }
   };
-  const VIEWS_IMAGE_BASE = 'https://kyungah-images.pages.dev/exhibition/';
+  const VIEWS_IMAGE_BASE = 'https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/exhibition/';
   let viewRecords = null;
-  let viewCategory = 'exhibition';
+  let viewCategory = 'process';
   let currentViewRecord = null;
   function viewText(record, key) { return String(record[key + (lang === 'ko' ? '_kr' : '_en')] || ''); }
   function viewImage(name) { return new URL(name, VIEWS_IMAGE_BASE).href; }
@@ -2037,8 +2037,8 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     const tabs = viewElement('div', 'views-tabs');
     tabs.setAttribute('role', 'group');
     tabs.setAttribute('aria-label', lang === 'ko' ? '기록 분류' : 'Archive categories');
-    const labels = lang === 'ko' ? ['전시 모습', '작업 모습'] : ['Exhibition Views', 'Work Process'];
-    ['exhibition', 'process'].forEach((category, index) => {
+    const labels = lang === 'ko' ? ['작업 모습', '전시 모습'] : ['Work Process', 'Exhibition Views'];
+    ['process', 'exhibition'].forEach((category, index) => {
       const button = viewElement('button', '', labels[index]); button.type = 'button';
       button.setAttribute('aria-pressed', String(viewCategory === category));
       button.addEventListener('click', () => { viewCategory = category; showViewCards(); $('#exhibition-gallery .views-tabs').children[index].focus(); });
@@ -2053,7 +2053,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
         const cover = viewElement('img', 'views-cover'); cover.src = viewImage(record.cover); cover.alt = title; cover.loading = 'lazy'; card.appendChild(cover);
       }
       const body = viewElement('div', 'views-card-body');
-      body.appendChild(viewElement('p', 'views-label', labels[viewCategory === 'exhibition' ? 0 : 1]));
+      body.appendChild(viewElement('p', 'views-label', labels[viewCategory === 'process' ? 0 : 1]));
       if (title) body.appendChild(viewElement('h3', '', title));
       const meta = [record.date, viewText(record, 'location')].filter(Boolean).join(' · ');
       if (meta) body.appendChild(viewElement('p', 'views-meta', meta));
@@ -2417,7 +2417,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   function openInfoModal(key) {
     const data = INFO_CONTENT[key];
     if (!data) return;
-    if (key === 'exhibition' && currentInfoKey !== key) { exhibitionIndex = 0; viewCategory = 'exhibition'; currentViewRecord = null; }
+    if (key === 'exhibition' && currentInfoKey !== key) { exhibitionIndex = 0; viewCategory = 'process'; currentViewRecord = null; }
     if (key === 'news' && currentInfoKey !== key) newsReturnFocus = document.activeElement;
     if (key !== 'news') newsRequest++;
     currentInfoKey = key;
