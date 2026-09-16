@@ -1758,8 +1758,8 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
                 aria-haspopup="listbox" aria-expanded="false" aria-controls="series-select-panel"
                 aria-label="작품 섹션 선택 / Select artwork section">
           <span class="series-copy" id="series-select-label">
-            <span class="series-name-kr" data-i18n="ko">전체 섹션</span>
-            <span class="series-name-en" data-i18n="en">All Sections</span>
+            <span class="series-name-kr" data-i18n="ko">코라</span>
+            <span class="series-name-en" data-i18n="en">CHORA</span>
           </span>
           <svg class="series-select-chevron" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12l8 8 8-8"/></svg>
         </button>
@@ -2596,7 +2596,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   const INITIAL_EAGER_COUNT = 2;
   let visibleCount = INITIAL_VISIBLE;
 
-  let selectedSection = savedState.section || 'all';
+  let selectedSection = 'chora';
   let searchQuery = ''; // Search removed: ignore previously saved queries.
   // Which group (e.g. 'indramang') the Series panel is currently drilled
   // into, showing that group's movements instead of the top-level list.
@@ -2642,14 +2642,15 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     worksLoaded = true;
     worksLoading = false;
 
-    // A stale saved filter must never silently fall back to showing all works.
-    // Reset only when the saved key truly no longer exists.
-    if (
-      selectedSection !== 'all' &&
-      !sections.some(s => String(s.key) === String(selectedSection))
-    ) {
-      selectedSection = 'all';
-      saveUiState({ section: 'all' });
+    // The works view always uses one concrete section. If the current key
+    // is unavailable, fall back to the first active top-level section.
+    if (!sections.some(s => String(s.key) === String(selectedSection))) {
+      const firstSection = sections
+        .filter(s => s && s.active !== false && !s.parentKey)
+        .slice()
+        .sort((a, b) => Number(a.order ?? 0) - Number(b.order ?? 0))[0];
+      selectedSection = firstSection ? String(firstSection.key) : 'chora';
+      saveUiState({ section: selectedSection });
     }
 
     buildSeriesOptions();
@@ -2684,14 +2685,12 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   function topLevelSeriesData() {
     // Movements (parentKey set) are deliberately excluded here — they only
     // ever appear inside their group's submenu, never in the main list.
-    return [{ key: 'all', kr: '전체 섹션', en: 'All Sections', isGroup: false }].concat(
-      sections.filter(s => s.active && !s.parentKey).sort((a, b) => a.order - b.order).map(s => ({
-        key: s.key,
-        kr: s.title_kr || s.title_en || '',
-        en: s.title_en || s.title_kr || '',
-        isGroup: isGroupSection(s)
-      }))
-    );
+    return sections.filter(s => s.active && !s.parentKey).sort((a, b) => a.order - b.order).map(s => ({
+      key: s.key,
+      kr: s.title_kr || s.title_en || '',
+      en: s.title_en || s.title_kr || '',
+      isGroup: isGroupSection(s)
+    }));
   }
   function childSeriesData(parentKey) {
     return sections.filter(s => s.active && s.parentKey === parentKey).sort((a, b) => a.order - b.order).map(s => ({
@@ -2716,10 +2715,10 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   // (not just the top-level list) so the trigger button always shows the
   // right label even when a movement nested under a group is selected.
   function currentSectionMeta() {
-    if (selectedSection === 'all') return { key: 'all', kr: '전체 섹션', en: 'All Sections' };
     const sec = findSection(selectedSection);
     if (sec) return { key: sec.key, kr: sec.title_kr || sec.title_en || '', en: sec.title_en || sec.title_kr || '' };
-    return { key: 'all', kr: '전체 섹션', en: 'All Sections' };
+    const first = topLevelSeriesData()[0];
+    return first || { key: 'chora', kr: '코라', en: 'CHORA' };
   }
 
   function updateSeriesLabel() {
@@ -2977,10 +2976,8 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
 
   function applyFilters() {
     // Single source of truth:
-    // allWorks -> selected section (or all) -> search -> grid/lightbox.
-    const sectionWorks = selectedSection === 'all'
-      ? allWorks
-      : allWorks.filter(isWorkInSelectedSection);
+    // allWorks -> selected concrete section -> search -> grid/lightbox.
+    const sectionWorks = allWorks.filter(isWorkInSelectedSection);
 
     filteredWorks = sectionWorks.filter(work => {
       if (!searchQuery) return true;
@@ -3593,11 +3590,11 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     closeDrawer();
     if (typeof closeSeriesPanel === 'function') closeSeriesPanel();
 
-    selectedSection = 'all';
+    selectedSection = 'chora';
     seriesPanelGroup = null;
     searchQuery = '';
     visibleCount = INITIAL_VISIBLE;
-    saveUiState({ section: 'all', query: '' });
+    saveUiState({ section: 'chora', query: '' });
 
     if (worksLoaded) buildSeriesOptions();
     const searchInput = $('#search');
