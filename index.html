@@ -1944,7 +1944,10 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     Object.keys(panels).forEach(k => panels[k].classList.toggle('is-active', k === target));
     navButtons.forEach(b => b.classList.toggle('active', b.dataset.target === target));
     saveUiState({ panel: target });
-    if (target === 'works' && !worksLoaded) loadWorks();
+    if (target === 'works') {
+      if (!worksLoaded) loadWorks();
+      else renderGrid();
+    }
   }
   navButtons.forEach(b => {
     if (!b.dataset.target) return;
@@ -2588,9 +2591,9 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   let sections = [];
   let filteredWorks = [];
   let worksLoaded = false;
-  const INITIAL_VISIBLE = 24;
-  const LOAD_STEP = 24;
-  const INITIAL_EAGER_COUNT = 6;
+  const INITIAL_VISIBLE = 16;
+  const LOAD_STEP = 16;
+  const INITIAL_EAGER_COUNT = 2;
   let visibleCount = INITIAL_VISIBLE;
 
   let selectedSection = savedState.section || 'all';
@@ -3025,7 +3028,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
         : [material, field(work, 'size'), work.year].filter(Boolean).join(' · ');
       const rawImage = work.image || '';
       const imageUrl = rawImage ? withCacheBust(rawImage) : '';
-      const priority = index < INITIAL_EAGER_COUNT;
+      const priority = index < INITIAL_EAGER_COUNT && $('#panel-works').classList.contains('is-active');
       const imgSrc = priority ? (imageUrl || SVG_PLACEHOLDER) : SVG_PLACEHOLDER;
       const dataSrc = (!priority && imageUrl) ? ' data-src="' + escapeHTML(imageUrl) + '"' : '';
       const altText = buildAltText(work);
@@ -3062,7 +3065,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
         loadLazyImage(entry.target);
         observer.unobserve(entry.target);
       });
-    }, { root: null, rootMargin: '300px 0px', threshold: 0.01 });
+    }, { root: null, rootMargin: '120px 0px', threshold: 0.01 });
     return lazyObserver;
   }
   function loadLazyImage(img) {
@@ -3089,7 +3092,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
         visibleCount += LOAD_STEP;
         renderGrid();
       });
-    }, { root: null, rootMargin: '600px 0px', threshold: 0 });
+    }, { root: null, rootMargin: '320px 0px', threshold: 0 });
     return sentinelObserver;
   }
 
