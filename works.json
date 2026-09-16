@@ -2013,5 +2013,31 @@
     "year": "",
     "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/DT017.jpg",
     "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/DT017.jpg"
-  }
+  },
+ {
+  "id": "DT018",
+  "section_key": "dual-temporality",
+  "title_kr": "두 개의 시간",
+  "title_en": "Dual Temporality",
+  "material_kr": "캔버스에 아크릴",
+  "material_en": "acrylic on canvas",
+  "size_kr": "45 × 38.2 cm",
+  "size_en": "45 × 38.2 cm",
+  "year": "2014",
+  "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/DT018.jpg",
+  "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/DT018.jpg"
+},
+{
+  "id": "DT019",
+  "section_key": "dual-temporality",
+  "title_kr": "두 개의 시간",
+  "title_en": "Dual Temporality",
+  "material_kr": "캔버스에 아크릴",
+  "material_en": "acrylic on canvas",
+  "size_kr": "45 × 45 cm",
+  "size_en": "45 × 45 cm",
+  "year": "2014",
+  "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/DT019.jpg",
+  "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/DT019.jpg"
+} 
 ]
