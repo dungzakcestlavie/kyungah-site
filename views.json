@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "KY001",
+    "category": "process",
+    "title_kr": "작업 모습",
+    "title_en": "Work Process",
+    "date": "",
+    "location_kr": "",
+    "location_en": "",
+    "description_kr": "",
+    "description_en": "",
+    "cover": "KY001.jpg",
+    "images": [
+      "KY001.jpg"
+    ],
+    "active": true,
+    "order": 1
+  }
+]
