@@ -1,5 +1,18 @@
 [
   {
+    "id": "CO038",
+    "section_key": "chora",
+    "title_kr": "Relation",
+    "title_en": "Relation",
+    "material_kr": "혼합재료",
+    "material_en": "mixed media",
+    "size_kr": "130.3 × 97 cm",
+    "size_en": "130.3 × 97 cm",
+    "year": "2026",
+    "image": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/standard/C038.jpg",
+    "zoom": "https://raw.githubusercontent.com/dungzakcestlavie/kyungah-images/main/zoom/C038.jpg"
+  },
+  {
     "id": "CO001",
     "section_key": "chora",
     "title_kr": "...from",
