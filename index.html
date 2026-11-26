@@ -2351,11 +2351,13 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
           if (typeof record.id !== 'string' || !record.id || ids.has(record.id) ||
               !Number.isFinite(record.order) || orders.has(record.order)) throw new Error('Invalid news identity/order');
           ids.add(record.id); orders.add(record.order);
-          if (record.type === 'press-link') {
-            for (const field of ['title_kr','title_en','body_kr','body_en','url']) {
+          if (record.type === 'press-link' || record.type === 'press-summary') {
+            const fields = ['title_kr','title_en','body_kr','body_en'];
+            if (record.type === 'press-link') fields.push('url');
+            for (const field of fields) {
               if (typeof record[field] !== 'string' || !record[field].trim()) throw new Error('Incomplete press link');
             }
-            if (!/^https?:$/.test(new URL(record.url).protocol)) throw new Error('Invalid press link URL');
+            if (record.type === 'press-link' && !/^https?:$/.test(new URL(record.url).protocol)) throw new Error('Invalid press link URL');
             continue;
           }
           for (const field of ['title_kr','title_en','body_kr','body_en','alt_kr','alt_en','image']) {
@@ -2378,6 +2380,12 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
       for (const record of newsRecords) {
         const card = viewElement('article', 'news-card');
         card.dataset.newsId = record.id;
+        if (record.type === 'press-summary') {
+          const copy = viewElement('div', 'news-copy');
+          copy.append(viewElement('h3', '', newsText(record, 'title')), viewElement('p', 'news-body news-press-body', newsText(record, 'body')));
+          card.append(copy); grid.append(card);
+          continue;
+        }
         if (record.type === 'press-link') {
           const copy = viewElement('div', 'news-copy');
           const link = viewElement('a', 'news-read-more', lang === 'ko' ? '기사 원문 보기 ↗' : 'Read original article ↗');
