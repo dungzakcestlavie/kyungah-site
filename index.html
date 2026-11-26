@@ -1553,6 +1553,7 @@
   #news-archive .news-images .news-image { width: 100%; height: 320px; object-fit: contain; background: #091b2c; }
   #news-archive .news-body { max-width: 78ch; }
   #news-archive .news-read-more { display: inline-block; margin-top: 20px; min-height: 44px; padding: 10px 20px; color: #f0ecdf; background: #143c40; border: 1px solid #d1b67c; border-radius: 5px; font: inherit; cursor: pointer; }
+  #news-archive .news-external-notice { color: #f0ecdf; font-size: .875rem; line-height: 1.7; margin: 16px 0 0; }
   #news-archive a.news-read-more { box-sizing: border-box; text-decoration: none; }
   #news-archive a.news-read-more:focus-visible { outline: 2px solid #e4ce9d; outline-offset: 3px; }
   #news-archive .news-read-more:hover { background: #245353; }
@@ -2376,6 +2377,14 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
           link.target = '_blank';
           link.rel = 'noopener noreferrer';
           copy.append(viewElement('h3', '', newsText(record, 'title')), viewElement('p', 'news-body', newsText(record, 'body')), link);
+          if (new URL(record.url).protocol === 'http:') {
+            const notice = viewElement('p', 'news-external-notice', lang === 'ko'
+              ? '외부 언론사 사이트는 HTTP 연결을 사용합니다. 원문 보기 선택 시 브라우저에 보안 안내가 표시될 수 있습니다.'
+              : 'The publisher uses HTTP. Your browser may display a security warning when you open the original article.');
+            notice.id = 'news-external-notice-' + record.id;
+            link.setAttribute('aria-describedby', notice.id);
+            copy.insertBefore(notice, link);
+          }
           card.append(copy); grid.append(card);
           continue;
         }
