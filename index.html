@@ -12,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Gowun+Dodum&family=Maru+Buri:wght@600&family=Nanum+Myeongjo:wght@400;700;800&family=Space+Grotesk:wght@300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Gowun+Dodum&family=Maru+Buri:wght@600&family=Nanum+Myeongjo:wght@400;700;800&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
-<link rel="preload" as="fetch" crossorigin="anonymous" href="works.json">
 
 <!-- ================= SEO: title / description / keywords / robots ================= -->
 <title id="doc-title">KYEONDAM KIM KYUNGAH — Contemporary Artist | 견담 김경아</title>
@@ -2228,6 +2227,12 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     });
     controls.append(prev, counter, next); gallery.append(back, toolbar, link, controls);
   }
+  // Revalidate small mutable data files without invalidating artwork image caches.
+  function fetchLatestData(path) {
+    const url = new URL(path, document.baseURI);
+    url.searchParams.set('_refresh', String(Date.now()));
+    return fetch(url, { cache: 'no-store' });
+  }
   async function renderExhibitionGallery() {
     if (currentViewRecord) { showExhibitionPhoto(); return; }
     const request = ++exhibitionRequest;
@@ -2235,7 +2240,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     $('#info-modal').classList.remove('is-viewer');
     gallery.textContent = lang === 'ko' ? '기록을 불러오는 중입니다.' : 'Loading archives…';
     try {
-      const response = await fetch('views.json', { cache: 'no-store' });
+      const response = await fetchLatestData('views.json');
       if (!response.ok) throw new Error('Archive data unavailable');
       const records = await response.json();
       if (!Array.isArray(records) || records.some(record => !record || !Array.isArray(record.images))) throw new Error('Invalid archive data');
@@ -2331,8 +2336,8 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     status.setAttribute('role', 'status');
     root.replaceChildren(status);
     try {
-      if (!newsRecords) {
-        const response = await fetch('news.json', { cache: 'no-cache' });
+      {
+        const response = await fetchLatestData('news.json');
         if (!response.ok) throw new Error('News HTTP ' + response.status);
         const records = await response.json();
         if (!Array.isArray(records)) throw new Error('Invalid news array');
@@ -2671,17 +2676,23 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
   }
 
   let worksLoading = false;
-  async function loadWorks() {
-    if (worksLoaded || worksLoading) return;
+  async function loadWorks(refresh = false) {
+    if ((worksLoaded && !refresh) || worksLoading) return;
     worksLoading = true;
     try {
       const [worksRes, sectionsRes] = await Promise.all([
-        fetch('works.json?v=' + ASSET_VERSION),
-        fetch('sections.json?v=' + ASSET_VERSION)
+        fetchLatestData('works.json'),
+        fetchLatestData('sections.json')
       ]);
-      allWorks = (await worksRes.json()).filter(work => work.section_key !== 'exhibition');
-      sections = (await sectionsRes.json()).filter(section => section.key !== 'exhibition');
+      if (!worksRes.ok || !sectionsRes.ok) throw new Error('Artwork data unavailable');
+      const [nextWorks, nextSections] = await Promise.all([worksRes.json(), sectionsRes.json()]);
+      if (!Array.isArray(nextWorks) || !Array.isArray(nextSections)) throw new Error('Invalid artwork data');
+      const validWorks = nextWorks.filter(work => work.section_key !== 'exhibition');
+      const validSections = nextSections.filter(section => section.key !== 'exhibition');
+      allWorks = validWorks; sections = validSections;
     } catch (e) {
+      // Keep the last good dataset if a background refresh fails.
+      if (worksLoaded) { worksLoading = false; return; }
       allWorks = []; sections = [];
     }
     worksLoaded = true;
@@ -3785,6 +3796,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     resetBioZoom();
     setLang('ko');
     resetHome();
+    loadWorks(true);
   });
   setLang(lang);
   // 2026-08-23 수정: 루트(/) 진입은 항상 INTRO(home)에서 시작해야 한다 —
