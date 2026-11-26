@@ -1553,6 +1553,8 @@
   #news-archive .news-images .news-image { width: 100%; height: 320px; object-fit: contain; background: #091b2c; }
   #news-archive .news-body { max-width: 78ch; }
   #news-archive .news-read-more { display: inline-block; margin-top: 20px; min-height: 44px; padding: 10px 20px; color: #f0ecdf; background: #143c40; border: 1px solid #d1b67c; border-radius: 5px; font: inherit; cursor: pointer; }
+  #news-archive a.news-read-more { box-sizing: border-box; text-decoration: none; }
+  #news-archive a.news-read-more:focus-visible { outline: 2px solid #e4ce9d; outline-offset: 3px; }
   #news-archive .news-read-more:hover { background: #245353; }
   @media (max-width:760px) {
     #news-archive .news-images { grid-template-columns: repeat(2,minmax(0,1fr)); }
@@ -1727,6 +1729,13 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
           <path d="M21 15l-5-5-4 4-3-3-5 5"/>
         </svg>
         <span data-i18n="ko">작업, 전시 모습</span><span data-i18n="en">Work &amp; Exhibition Views</span>
+      </button>
+      <button type="button" class="drawer-btn" data-info-target="news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <path d="M7 8h10M7 12h10M7 16h6"/>
+        </svg>
+        <span>News</span>
       </button>
       <button type="button" class="contact-toggle" id="contact-toggle" aria-expanded="false" aria-controls="contact-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -2025,7 +2034,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
       en: { title: 'Work & Exhibition Views', body: 'This page is being prepared. It will feature exhibition views, installation photos, openings, visitors, and exhibition records.' }
     },
     news: {
-      ko: { title: '뉴스', body: '뉴스 페이지를 준비하고 있습니다. 전시 소식, 작품 발표, 언론 기사, 인터뷰, 공지사항이 이곳에 소개될 예정입니다.' },
+      ko: { title: 'News', body: '뉴스 페이지를 준비하고 있습니다. 전시 소식, 작품 발표, 언론 기사, 인터뷰, 공지사항이 이곳에 소개될 예정입니다.' },
       en: { title: 'News', body: 'This page is being prepared. It will feature exhibition news, new work announcements, press coverage, interviews, and notices.' }
     }
   };
@@ -2333,6 +2342,13 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
           if (typeof record.id !== 'string' || !record.id || ids.has(record.id) ||
               !Number.isFinite(record.order) || orders.has(record.order)) throw new Error('Invalid news identity/order');
           ids.add(record.id); orders.add(record.order);
+          if (record.type === 'press-link') {
+            for (const field of ['title_kr','title_en','body_kr','body_en','url']) {
+              if (typeof record[field] !== 'string' || !record[field].trim()) throw new Error('Incomplete press link');
+            }
+            if (!/^https?:$/.test(new URL(record.url).protocol)) throw new Error('Invalid press link URL');
+            continue;
+          }
           for (const field of ['title_kr','title_en','body_kr','body_en','alt_kr','alt_en','image']) {
             if (typeof record[field] !== 'string' || !record[field].trim()) throw new Error('Incomplete news translation');
           }
@@ -2353,6 +2369,16 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
       for (const record of newsRecords) {
         const card = viewElement('article', 'news-card');
         card.dataset.newsId = record.id;
+        if (record.type === 'press-link') {
+          const copy = viewElement('div', 'news-copy');
+          const link = viewElement('a', 'news-read-more', lang === 'ko' ? '기사 원문 보기 ↗' : 'Read original article ↗');
+          link.href = record.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          copy.append(viewElement('h3', '', newsText(record, 'title')), viewElement('p', 'news-body', newsText(record, 'body')), link);
+          card.append(copy); grid.append(card);
+          continue;
+        }
         const images = viewElement('div', 'news-images');
         const photos = Array.isArray(record.images) && record.images.length ? record.images : [record];
         const cover = viewElement('button', 'news-cover-button');
@@ -2419,7 +2445,7 @@ html[data-theme="kyungah-light"] #info-modal.is-writings #info-body[lang="en"] {
     if (currentInfoKey !== 'news' || $('#info-modal').hidden) return;
     if (event.key === 'Escape') { event.preventDefault(); if (newsPhotoState) closeNewsPhoto(); else closeInfoModal(); }
     if (event.key === 'Tab') {
-      const buttons = Array.from($('#info-modal').querySelectorAll('button, [tabindex="0"]')).filter(button => button.getClientRects().length && !button.disabled);
+      const buttons = Array.from($('#info-modal').querySelectorAll('button, a[href], [tabindex="0"]')).filter(button => button.getClientRects().length && !button.disabled);
       const first = buttons[0], last = buttons[buttons.length - 1];
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
