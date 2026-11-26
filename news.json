@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "woman-story-14252",
+    "order": 1,
+    "active": true,
+    "type": "press-link",
+    "title_kr": "여성스토리 기사",
+    "title_en": "Woman Story — Press Coverage",
+    "body_kr": "견담 김경아 작가 관련 언론 기사",
+    "body_en": "Press coverage of Kyeondam Kim Kyungah.",
+    "url": "http://www.woman-story.co.kr/news/articleView.html?idxno=14252"
+  }
+]
